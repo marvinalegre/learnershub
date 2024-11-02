@@ -10,12 +10,17 @@ import Login, {
 } from "./routes/Login";
 import AdminPage, { loader as adminLoader } from "./routes/AdminPage";
 import Resources, { loader as resourcesLoader } from "./routes/Resources";
+import Index from "./routes/Index";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     children: [
+      {
+        index: true,
+        element: <Index />,
+      },
       {
         path: "/login",
         element: <Login />,
