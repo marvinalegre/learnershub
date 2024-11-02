@@ -19,10 +19,14 @@ const Navbar = () => {
       </div>
       <ul className={`nav-links ${isOpen ? "open" : ""}`}>
         <li>
-          <Link to="/">Home</Link>
+          <Link onClick={toggleMenu} to="/">
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="resources">Resources</Link>
+          <Link onClick={toggleMenu} to="resources">
+            Resources
+          </Link>
         </li>
       </ul>
     </nav>
