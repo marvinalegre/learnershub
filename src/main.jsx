@@ -5,6 +5,7 @@ import "./style.css";
 
 import Root from "./routes/Root";
 import Login, { action as loginAction } from "./routes/Login";
+import AdminPage, { loader as adminLoader } from "./routes/AdminPage";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,11 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
         action: loginAction,
+      },
+      {
+        path: "/admin",
+        element: <AdminPage />,
+        loader: adminLoader,
       },
     ],
   },
