@@ -2,6 +2,7 @@ import { Form } from "react-router-dom";
 
 export async function action({ request }) {
   const formData = await request.formData();
+  console.log(formData.get("username")); ////////////
 
   const res = await fetch("/api/login", {
     method: "post",
@@ -23,10 +24,24 @@ export default function Login() {
   return (
     <Form method="POST">
       <label htmlFor="username">username:</label>
-      <input id="username" type="text" minLength={3} maxLength={30} />
+      <input
+        name="username"
+        id="username"
+        type="text"
+        minLength={3}
+        maxLength={30}
+        required
+      />
       <br />
       <label htmlFor="password">password:</label>
-      <input id="password" type="password" minLength={12} maxLength={30} />
+      <input
+        name="password"
+        id="password"
+        type="password"
+        minLength={12}
+        maxLength={30}
+        required
+      />
       <br />
       <button type="submit">login</button>
     </Form>
