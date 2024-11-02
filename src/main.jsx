@@ -9,6 +9,7 @@ import Login, {
   loader as loginLoader,
 } from "./routes/Login";
 import AdminPage, { loader as adminLoader } from "./routes/AdminPage";
+import Resources, { loader as resourcesLoader } from "./routes/Resources";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,11 @@ const router = createBrowserRouter([
         path: "/admin",
         element: <AdminPage />,
         loader: adminLoader,
+      },
+      {
+        path: "/resources",
+        element: <Resources />,
+        loader: resourcesLoader,
       },
     ],
   },
