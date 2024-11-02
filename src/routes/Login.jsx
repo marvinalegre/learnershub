@@ -19,6 +19,15 @@ export async function action({ request }) {
   return { err };
 }
 
+export async function loader() {
+  const res = await fetch("/api/user");
+  const { loggedIn } = await res.json();
+
+  if (loggedIn) return redirect("/admin");
+
+  return null;
+}
+
 export default function Login() {
   return (
     <Form method="POST">
