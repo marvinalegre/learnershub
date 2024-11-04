@@ -1,31 +1,41 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import HamburgerButton from "./HamburgerButton";
+import * as Dialog from "@radix-ui/react-dialog";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
-    <nav className="navbar">
-      <div className="logo">Learners Hub</div>
-      <div className={`hamburger ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
-      </div>
-      <ul className={`nav-links ${isOpen ? "open" : ""}`}>
+    <nav className="navbar h-16">
+      <div className="logo font-semibold">LearnersHub</div>
+      <Dialog.Root open={open} onOpenChange={setOpen}>
+        <Dialog.Trigger>
+          <HamburgerButton />
+        </Dialog.Trigger>
+        <Dialog.Portal>
+          <Dialog.Content className="fixed inset-0 top-16 bg-white">
+            <ul className="text-xl p-2">
+              <li onClick={() => setOpen(false)}>
+                <Link to="/">Home</Link>
+              </li>
+              <li onClick={() => setOpen(false)}>
+                <Link to="resources">Resources</Link>
+              </li>
+            </ul>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
+      <ul className="hidden md:flex text-white space-x-8 ml-10 text-xl">
         <li>
-          <Link onClick={toggleMenu} to="/">
-            Home
-          </Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <Link onClick={toggleMenu} to="resources">
-            Resources
-          </Link>
+          <Link to="resources">Resources</Link>
         </li>
       </ul>
     </nav>
