@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./style.css";
 
-import Root from "./routes/Root";
+import Root, { loader as rootLoader } from "./routes/Root";
 import Login, {
   action as loginAction,
   loader as loginLoader,
@@ -16,6 +16,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    loader: rootLoader,
     children: [
       {
         index: true,
