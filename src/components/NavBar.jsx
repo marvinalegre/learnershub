@@ -12,7 +12,7 @@ const Navbar = ({ loggedIn }) => {
 
   return (
     <nav className="navbar h-16">
-      <div className="logo font-semibold">LearnersHub</div>
+      <div className="logo font-semibold">University Tambayan</div>
       <Dialog.Root open={open} onOpenChange={setOpen}>
         <Dialog.Trigger>
           <HamburgerButton />
