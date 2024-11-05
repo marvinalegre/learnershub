@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         "custom-gray": "#e4e4e4",
+        "nav-black": "#333",
       },
     },
   },

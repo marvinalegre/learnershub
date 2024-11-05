@@ -18,14 +18,40 @@ const Navbar = ({ loggedIn }) => {
           <HamburgerButton />
         </Dialog.Trigger>
         <Dialog.Portal>
-          <Dialog.Content className="fixed inset-0 top-16 bg-white">
-            <ul className="text-xl p-2">
-              <li onClick={() => setOpen(false)}>
+          <Dialog.Content className="fixed inset-0 top-16 bg-nav-black">
+            <ul className="text-xl p-7 text-white">
+              <li
+                onClick={() => setOpen(false)}
+                className="py-4 border-b border-gray-50 hover:text-gray-300"
+              >
                 <Link to="/">Home</Link>
               </li>
-              <li onClick={() => setOpen(false)}>
+              <li
+                onClick={() => setOpen(false)}
+                className="py-4 border-b border-gray-50 hover:text-gray-300"
+              >
                 <Link to="resources">Resources</Link>
               </li>
+              {loggedIn ? null : (
+                <li className="mt-12">
+                  <Link
+                    to="login"
+                    className="bg-white py-2 rounded px-4 text-black hover:text-gray-600"
+                  >
+                    Login
+                  </Link>
+                </li>
+              )}
+              {loggedIn ? (
+                <li className="mt-12">
+                  <Link
+                    to="logout"
+                    className="bg-white py-2 rounded px-4 text-black hover:text-gray-600"
+                  >
+                    Logout
+                  </Link>
+                </li>
+              ) : null}
             </ul>
           </Dialog.Content>
         </Dialog.Portal>
