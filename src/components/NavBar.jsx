@@ -33,7 +33,7 @@ const Navbar = ({ loggedIn }) => {
                 <Link to="resources">Resources</Link>
               </li>
               {loggedIn ? null : (
-                <li className="mt-12">
+                <li onClick={() => setOpen(false)} className="mt-12">
                   <Link
                     to="login"
                     className="bg-white py-2 rounded px-4 text-black hover:text-gray-600"
@@ -43,7 +43,7 @@ const Navbar = ({ loggedIn }) => {
                 </li>
               )}
               {loggedIn ? (
-                <li className="mt-12">
+                <li onClick={() => setOpen(false)} className="mt-12">
                   <Link
                     to="logout"
                     className="bg-white py-2 rounded px-4 text-black hover:text-gray-600"
